@@ -2,8 +2,6 @@ name: Deploy Develop Env on ThinClient
 
 on:
   push:
-    branches-ignore:
-      - main
     branches:
       - develop
 
