@@ -1,0 +1,20 @@
+name: Deploy Develop Env on ThinClient
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  deploy:
+    name: Deploy Dev Env on ThinClient
+    runs-on: [self-hosted, x64, node1hp]
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Build and Run Docker Container
+        run: |
+          docker compose down || true
+          docker compose up -d --build
